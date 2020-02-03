@@ -6,6 +6,7 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 
 app.get('/', (req, res) => {
     //res.status(200).send('Good Day');
+    
     res.json({
         emp : 'NAME',
         age: 10,

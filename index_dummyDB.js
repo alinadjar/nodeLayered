@@ -1,10 +1,15 @@
+const bodyparser = require('body-parser');
 const express = require('express');
 const db = require('./dummyDB/db');
 const app = express();
 
 
-app.use(express.json());
 
+// Configure bodyparser to handle post requests
+app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(bodyparser.json());
+// Body-parser enables your app to parse data from incoming request like form data via urlencode. 
+app.use(express.json());
 
 
 app.get('/api/v1/todos', (req, res) => {
