@@ -13,6 +13,7 @@ module.exports = (req, res, next) => {
         const decoded = jwt.verify(token, config.get('SECRET'));
         console.log('TOKEN DECODED: ' + JSON.stringify(decoded));
         req.user = decoded; // this decoded is the payload object embedded in the token upon creation
+        console.log(decoded.username);
         next();
     }
     catch (ex) {
