@@ -191,12 +191,26 @@ const express = require('express');
 const app = express();
 
 
+
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 app.use(express.json());
 
 
 
 app.get('/api/v1/foods', (req, res) => {
     res.status(200).send(listFoods);
+});
+
+
+app.post('/api/v1/Login', (req, res) => {
+    console.log(req.body);
+    // res.sendStatus(400);
+    //res.status(400).send('NOK');
+    res.status(200).send('OK');
 });
 
 
@@ -207,4 +221,12 @@ app.listen(5000, () => {
 
 
 
+// const x = 12.5481254;
 
+// console.log((x*100)/100);
+// console.log(Math.round(x*100)/100);
+
+
+// const y = 0.74;
+// console.log((y*10000)/100 + ' %');
+// console.log(Math.round(y*10000)/100);

@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 
+
+
+
 const PORT = process.env.PORT || 2000;
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -30,6 +33,8 @@ app.set('port', PORT);
 console.log(app.get('port'));
 
 
+
+app.use('/v3', require('./API/index'));
 
 const server5 = app.listen(PORT, () => {
     let host = server5.address().address;
